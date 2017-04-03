@@ -8,7 +8,7 @@ var randomAvatarFunc = function () {                               // функц
   return selectedAvatarImg;
 };
 var titleDiscribe = ['Большая уютная квартира', 'Маленькая неуютная квартира', 'Огромный прекрасный дворец', 'Маленький ужасный дворец', 'Красивый гостевой домик', 'Некрасивый негостеприимный домик', 'Уютное бунгало далеко от моря', 'Неуютное бунгало по колено в воде'];
-var randomTitleDiscribe = function () {                            // функция вывода неповторяющихся описаний квартир  
+var randomTitleDiscribe = function () {                            // функция вывода неповторяющихся описаний квартир
   var randomTitleDiscribe = Math.floor(Math.random() * titleDiscribe.length);
   var selectedTitleDiscribe = titleDiscribe[randomTitleDiscribe];
   titleDiscribe.splice(randomTitleDiscribe, 1);
@@ -20,13 +20,13 @@ var randomPrice = function () {                          // функция вы�
   var price = Math.floor(Math.random() * (maximum - minimum) + minimum);
   return price;
 };
-var randomTypeOfHouse  = function () {                     // функция вывода случайного типа квартиры
+var randomTypeOfHouse = function () {                     // функция вывода случайного типа квартиры
   var typeOfHouse = ['flat', 'house', 'bungalo'];
   var randomTitleDiscribe = Math.floor(Math.random() * typeOfHouse.length);
   var selectedTypeOfHouse = typeOfHouse[randomTitleDiscribe];
   return selectedTypeOfHouse;
 };
-var randomRoomsFunc  = function () {                        // функция вывода случайного количества комнат
+var randomRoomsFunc = function () {                        // функция вывода случайного количества комнат
   var rooms = [1, 2, 3, 4, 5];
   var randomRooms = Math.floor(Math.random() * rooms.length);
   var selectedRooms = rooms[randomRooms];
@@ -38,13 +38,13 @@ var randomGuests = function () {                    // функция вывод
   var numberOfGuests = Math.floor(Math.random() * (maximum - minimum)) + minimum;
   return numberOfGuests;
 };
-var randomTimeFunc  = function () {                      // функция вывода случайного времени прибытия
+var randomTimeFunc = function () {                      // функция вывода случайного времени прибытия
   var timeChose = ['12:00', '13:00', '14:00'];
   var randomTimeChose = Math.floor(Math.random() * timeChose.length);
   var selectedTime = timeChose[randomTimeChose];
   return selectedTime;
 };
-var randomTimeOutFunc  = function () {                  // функция вывода случайного времени убытия
+var randomTimeOutFunc = function () {                  // функция вывода случайного времени убытия
   var timeChoseOut = ['12:00', '13:00', '14:00'];
   var randomTimeChoseOut = Math.floor(Math.random() * timeChoseOut.length);
   var selectedTimeOut = timeChoseOut[randomTimeChoseOut];
@@ -87,17 +87,17 @@ var flatFunc = function () {                        // функция вывод
   return newFlat;
 };
 var pinAdress = [                                       // массив, состоящий из 8 сгенерированных из JS объектов
-  {'author': { 'avatar': randomAvatarFunc()}, 'offer': {"title": randomTitleDiscribe(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': { 'x': randomX(), 'y': randomY()}},
-  {'author': { 'avatar': randomAvatarFunc()}, 'offer': {"title": randomTitleDiscribe(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': { 'x': randomX(), 'y': randomY()}},
-  {'author': { 'avatar': randomAvatarFunc()}, 'offer': {"title": randomTitleDiscribe(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': { 'x': randomX(), 'y': randomY()}},
-  {'author': { 'avatar': randomAvatarFunc()}, 'offer': {"title": randomTitleDiscribe(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': { 'x': randomX(), 'y': randomY()}},
-  {'author': { 'avatar': randomAvatarFunc()}, 'offer': {"title": randomTitleDiscribe(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': { 'x': randomX(), 'y': randomY()}},
-  {'author': { 'avatar': randomAvatarFunc()}, 'offer': {"title": randomTitleDiscribe(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': { 'x': randomX(), 'y': randomY()}},
-  {'author': { 'avatar': randomAvatarFunc()}, 'offer': {"title": randomTitleDiscribe(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': { 'x': randomX(), 'y': randomY()}},
-  {'author': { 'avatar': randomAvatarFunc()}, 'offer': {"title": randomTitleDiscribe(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': { 'x': randomX(), 'y': randomY()}}
+  {'author': {'avatar': randomAvatarFunc()}, 'offer': {'title': randomTitleDiscribe(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': {'x': randomX(), 'y': randomY()}},
+  {'author': {'avatar': randomAvatarFunc()}, 'offer': {'title': randomTitleDiscribe(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': {'x': randomX(), 'y': randomY()}},
+  {'author': {'avatar': randomAvatarFunc()}, 'offer': {'title': randomTitleDiscribe(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': {'x': randomX(), 'y': randomY()}},
+  {'author': {'avatar': randomAvatarFunc()}, 'offer': {'title': randomTitleDiscribe(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': {'x': randomX(), 'y': randomY()}},
+  {'author': {'avatar': randomAvatarFunc()}, 'offer': {'title': randomTitleDiscribe(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': {'x': randomX(), 'y': randomY()}},
+  {'author': {'avatar': randomAvatarFunc()}, 'offer': {'title': randomTitleDiscribe(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': {'x': randomX(), 'y': randomY()}},
+  {'author': {'avatar': randomAvatarFunc()}, 'offer': {'title': randomTitleDiscribe(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': {'x': randomX(), 'y': randomY()}},
+  {'author': {'avatar': randomAvatarFunc()}, 'offer': {'title': randomTitleDiscribe(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': {'x': randomX(), 'y': randomY()}}
 ];
 var allPin = document.querySelector('.tokyo__pin-map');
-var fragment = document.createDocumentFragment();                       // создание меток и генерация их 
+var fragment = document.createDocumentFragment();                       // создание меток и генерация их
 var i;
 for (i = 0; i < pinAdress.length; i++) {
   var newPin = document.createElement('div');
@@ -107,10 +107,10 @@ for (i = 0; i < pinAdress.length; i++) {
   fragment.appendChild(newPin);
 }
 allPin.appendChild(fragment);
-var listElement = document.querySelector('.dialog');                    // нанинаем клонировать эдемент 
+var listElement = document.querySelector('.dialog');                    // нанинаем клонировать эдемент
 var replicedElement = document.querySelector('.dialog__panel');
 var listTemplate = document.querySelector('#lodge-template').content;
-var i = 0;
+i = 0;
 var dialogElement = listTemplate.cloneNode(true);
 listElement.replaceChild(dialogElement, replicedElement);                           // замена блока другим
 listElement.querySelector('.lodge__title').innerHTML = pinAdress[i].offer.title;               // внесение данных из массива объектов
@@ -119,7 +119,7 @@ listElement.querySelector('.lodge__price').innerHTML = pinAdress[i].offer.price 
 listElement.querySelector('.lodge__type').innerHTML = flatFunc();     // вызов функции выбора апартаментов
 listElement.querySelector('.lodge__rooms-and-guests').innerHTML = 'Для ' + pinAdress[i].offer.guests + ' гостей в ' + pinAdress[i].offer.rooms + ' в комнатах';              // внесение данных из массива объектов
 listElement.querySelector('.lodge__checkin-time').innerHTML = 'Заезд после ' + pinAdress[i].offer.checkin + ' , выезд до ' + pinAdress[i].offer.checkout + '';        // внесение данных из массива объектов
-var allSpan = document.querySelector('.lodge__features');          // создание пустых span в зависимости от полученных данных  
+var allSpan = document.querySelector('.lodge__features');          // создание пустых span в зависимости от полученных данных
 var fragmentSpan = document.createDocumentFragment();
 var j;
 for (j = 0; j < pinAdress[i].offer.features.length; j++) {
