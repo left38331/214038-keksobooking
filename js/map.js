@@ -1,20 +1,20 @@
 'use strict';
 
-var avatarImg = ['img/avatars/user01.png', 'img/avatars/user02.png', 'img/avatars/user03.png', 'img/avatars/user04.png', 'img/avatars/user05.png', 'img/avatars/user06.png', 'img/avatars/user07.png', 'img/avatars/user08.png'];
+var avatarImg = ['img/avatars/user01.png', 'img/avatars/user02.png', 'img/avatars/user03.png', 'img/avatars/user04.png', 'img/avatars/user05.png', 'img/avatars/user06.png', 'img/avatars/user07.png', 'img/avatars/user08.png'];   // массив выведен за функцию, так как тогда не работает неповторяемость адресов
 var randomAvatarFunc = function () {                               // функция вывода неповторяющихся адресов  изображений
   var randomAvatarImg = Math.floor(Math.random() * avatarImg.length);
   var selectedAvatarImg = avatarImg[randomAvatarImg];
   avatarImg.splice(randomAvatarImg, 1);
   return selectedAvatarImg;
 };
-var titleDiscribe = ['Большая уютная квартира', 'Маленькая неуютная квартира', 'Огромный прекрасный дворец', 'Маленький ужасный дворец', 'Красивый гостевой домик', 'Некрасивый негостеприимный домик', 'Уютное бунгало далеко от моря', 'Неуютное бунгало по колено в воде'];
+var titleDiscribe = ['Большая уютная квартира', 'Маленькая неуютная квартира', 'Огромный прекрасный дворец', 'Маленький ужасный дворец', 'Красивый гостевой домик', 'Некрасивый негостеприимный домик', 'Уютное бунгало далеко от моря', 'Неуютное бунгало по колено в воде'];   // массив выведен за функцию, так как тогда не работает неповторяемость описаний квартиры
 var randomTitleFunc = function () {                            // функция вывода неповторяющихся описаний квартир
   var randomTitleDiscribe = Math.floor(Math.random() * titleDiscribe.length);
   var selectedTitleDiscribe = titleDiscribe[randomTitleDiscribe];
   titleDiscribe.splice(randomTitleDiscribe, 1);
   return selectedTitleDiscribe;
 };
-var randomPrice = function () {                          // функция вывода случайной цены
+var randomPrice = function () {                          // функция вывода случайной округленной цены
   var minimum = 1000;
   var maximum = 1000000;
   var price = Math.floor(Math.random() * (maximum - minimum) + minimum);
@@ -86,19 +86,18 @@ var flatFunc = function () {                        // функция вывод
   }
   return newFlat;
 };
-var pinAdress = [                                       // массив, состоящий из 8 сгенерированных из JS объектов
-  {'author': {'avatar': randomAvatarFunc()}, 'offer': {'title': randomTitleFunc(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': {'x': randomX(), 'y': randomY()}},
-  {'author': {'avatar': randomAvatarFunc()}, 'offer': {'title': randomTitleFunc(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': {'x': randomX(), 'y': randomY()}},
-  {'author': {'avatar': randomAvatarFunc()}, 'offer': {'title': randomTitleFunc(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': {'x': randomX(), 'y': randomY()}},
-  {'author': {'avatar': randomAvatarFunc()}, 'offer': {'title': randomTitleFunc(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': {'x': randomX(), 'y': randomY()}},
-  {'author': {'avatar': randomAvatarFunc()}, 'offer': {'title': randomTitleFunc(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': {'x': randomX(), 'y': randomY()}},
-  {'author': {'avatar': randomAvatarFunc()}, 'offer': {'title': randomTitleFunc(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': {'x': randomX(), 'y': randomY()}},
-  {'author': {'avatar': randomAvatarFunc()}, 'offer': {'title': randomTitleFunc(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': {'x': randomX(), 'y': randomY()}},
-  {'author': {'avatar': randomAvatarFunc()}, 'offer': {'title': randomTitleFunc(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': {'x': randomX(), 'y': randomY()}}
-];
+var numberOfPin = 8;                   // нужное количество меток (js обхектов) на карте
+var funcBuildPin = function () {         // функция генерации обхекта на основе других функций
+  var exzamplePin = {'author': {'avatar': randomAvatarFunc()}, 'offer': {'title': randomTitleFunc(), 'address': '{{location.x}}, {{location.y}}', 'price': randomPrice(), 'type': randomTypeOfHouse(), 'rooms': randomRoomsFunc(), 'guests': randomGuests(), 'checkin': randomTimeFunc(), 'checkout': randomTimeOutFunc(), 'features': randomFeatures(), 'description': '      ', 'photos': photosArr}, 'location': {'x': randomX(), 'y': randomY()}};
+  return (exzamplePin);
+};
+var pinAdress = [];       // объявляем пустой массив, куда будут занасится наши js объекты
+var i;
+for (i = 0; i < numberOfPin; i++) {              // генерируем столько js объектов сколько нужно, по заданию  numberOfPin = 8
+  pinAdress[i] = funcBuildPin(numberOfPin);
+}
 var allPin = document.querySelector('.tokyo__pin-map');
 var fragment = document.createDocumentFragment();                       // создание меток и генерация их
-var i;
 for (i = 0; i < pinAdress.length; i++) {
   var newPin = document.createElement('div');
   newPin.className = 'pin';
@@ -107,7 +106,7 @@ for (i = 0; i < pinAdress.length; i++) {
   fragment.appendChild(newPin);
 }
 allPin.appendChild(fragment);
-var listElement = document.querySelector('.dialog');                    // нанинаем клонировать эдемент
+var listElement = document.querySelector('.dialog');                    // начинаем клонировать элемент (левая плашка и описание метки карты)
 var replicedElement = document.querySelector('.dialog__panel');
 var listTemplate = document.querySelector('#lodge-template').content;
 i = 0;
