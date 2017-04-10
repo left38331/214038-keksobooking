@@ -48,12 +48,12 @@ var randomPriceOrGuests = function (min, max) {                          // фу
 };
 var photosArr = [];                                 // пустой массив фоток
 var coordinateX = {
-minimum:  300,
-maximum:  900
+  minimum: 300,
+  maximum: 900
 };
 var coordinateY = {
-minimum:  100,
-maximum:  500
+  minimum: 100,
+  maximum: 500
 };
 var randomXY = function (min, max) {                         // функция вывода случайноых координат х y
   var numberXY = Math.floor(Math.random() * (max - min)) + min;
