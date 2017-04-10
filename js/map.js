@@ -48,12 +48,12 @@ var randomPriceOrGuests = function (min, max) {                          // фу
 };
 var photosArr = [];                                 // пустой массив фоток
 var coordinateX = {
-  minimum:  300,
-  maximum:  900
+minimum:  300,
+maximum:  900
 };
 var coordinateY = {
-  minimum:  100,
-  maximum:  500
+minimum:  100,
+maximum:  500
 };
 var randomXY = function (min, max) {                         // функция вывода случайноых координат х y
   var numberXY = Math.floor(Math.random() * (max - min)) + min;
@@ -67,7 +67,7 @@ var funcBuildPin = function () {         // функция генерации о
     },
     'offer': {
       'title': randomAvatarOrTitleFunc(titleDiscribe),
-      'address': function () { var locationX = this.author.avatar; return locationX; },
+      'address': 'function () { var locationX = this.author.avatar; return locationX; }',
       'price': randomPriceOrGuests(priceOfNight.minimum, priceOfNight.maximum),
       'type': randomTypeOfHouseOrTimeFunc(typeOfHouse),
       'rooms': randomRoomsFunc(),
@@ -111,16 +111,16 @@ var showPopupFunc = function (pin) {
   listElement.querySelector('.lodge__address').innerHTML = pinAdress[pin].offer.address;              // внесение данных из массива объектов
   listElement.querySelector('.lodge__price').innerHTML = pinAdress[pin].offer.price + ' &#x20bd;/ночь';     // внесение данных из массива объектов
   var flatFunc = function () {                 // функция вывода разных видов апартаментов в зависимости от поступивших данных от js объекта
-      var newFlat;
-      if (pinAdress[pin].offer.type === 'flat') {
-        newFlat = 'Квартира';
-      } else if (pinAdress[pin].offer.type === 'bungalo') {
-        newFlat = 'Бунгало';
-      } else {
-        newFlat = 'Дом';
-      }
-      return newFlat;
-    };
+    var newFlat;
+    if (pinAdress[pin].offer.type === 'flat') {
+      newFlat = 'Квартира';
+    } else if (pinAdress[pin].offer.type === 'bungalo') {
+      newFlat = 'Бунгало';
+    } else {
+      newFlat = 'Дом';
+    }
+    return newFlat;
+  };
   listElement.querySelector('.lodge__type').innerHTML = flatFunc();     // вызов функции выбора апартаментов
   listElement.querySelector('.lodge__rooms-and-guests').innerHTML = 'Для ' + pinAdress[pin].offer.guests + ' гостей в ' + pinAdress[pin].offer.rooms + ' в комнатах';              // внесение данных из массива объектов
   listElement.querySelector('.lodge__checkin-time').innerHTML = 'Заезд после ' + pinAdress[pin].offer.checkin + ' , выезд до ' + pinAdress[pin].offer.checkout + '';        // внесение данных из массива объектов
