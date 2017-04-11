@@ -67,7 +67,7 @@ var funcBuildPin = function () {         // функция генерации о
     },
     'offer': {
       'title': randomAvatarOrTitleFunc(titleDiscribe),
-      'address': function () { 
+      'address': function () {
         return this.location.x + ', ' + this.location.y;
       },
       'price': randomPriceOrGuests(priceOfNight.minimum, priceOfNight.maximum),
