@@ -67,7 +67,9 @@ var funcBuildPin = function () {         // функция генерации о
     },
     'offer': {
       'title': randomAvatarOrTitleFunc(titleDiscribe),
-      'address': function () {return this.location.x + ', ' + this.location.y; },
+      'address': function () { 
+        return this.location.x + ', ' + this.location.y;
+      },
       'price': randomPriceOrGuests(priceOfNight.minimum, priceOfNight.maximum),
       'type': randomTypeOfHouseOrTimeFunc(typeOfHouse),
       'rooms': randomRoomsFunc(),
@@ -93,16 +95,16 @@ for (i = 0; i < numberOfPin; i++) {              // генерируем сто�
 }
 var allPin = document.querySelector('.tokyo__pin-map');
 var fragment = document.createDocumentFragment();                       // создание меток и генерация их
-var coordinateX = [];                              // пустой массив для записи туда координат Х
-var coordinateY = [];                              // пустой массив для записи туда координат Y
+var copyCoordinateX = [];                              // пустой массив для записи туда координат Х
+var copyCoordinateY = [];                              // пустой массив для записи туда координат Y
 for (i = 0; i < pinAdress.length; i++) {
   var newPin = document.createElement('div');
   newPin.className = 'pin';
   newPin.innerHTML = '<img  src="' + pinAdress[i].author.avatar + '"  class="rounded" width="40" height="40" tabindex="0">';
   newPin.style = 'left: ' + pinAdress[i].location.x + 'px; top: ' + pinAdress[i].location.y + 'px';
   fragment.appendChild(newPin);
-  coordinateY[i] = pinAdress[i].location.y;         // запись в массив Х
-  coordinateX[i] = pinAdress[i].location.x;         // запись в массив У
+  copyCoordinateY[i] = pinAdress[i].location.y;         // запись в массив Х
+  copyCoordinateX[i] = pinAdress[i].location.x;         // запись в массив У
 }
 allPin.appendChild(fragment);
 var listElement = document.querySelector('.dialog');                    // начинаем клонировать элемент (левая плашка и описание метки карты)
@@ -112,7 +114,7 @@ var dialogElement = listTemplate.cloneNode(true);
 listElement.replaceChild(dialogElement, replicedElement);                           // замена блока другим
 var showPopupFunc = function (pin) {
   listElement.querySelector('.lodge__title').textContent = pinAdress[pin].offer.title;               // внесение данных из массива объектов
-  listElement.querySelector('.lodge__address').textContent = ' ' + coordinateX[pin] + ' , ' + coordinateY[pin] + '';              // внесение данных из массива объектов
+  listElement.querySelector('.lodge__address').textContent = ' ' + copyCoordinateX[pin] + ' , ' + copyCoordinateY[pin] + '';              // внесение данных из массива объектов
   listElement.querySelector('.lodge__price').innerHTML = pinAdress[pin].offer.price + ' &#x20bd;/ночь';     // внесение данных из массива объектов
   var flatFunc = function () {                 // функция вывода разных видов апартаментов в зависимости от поступивших данных от js объекта
     var newFlat;
