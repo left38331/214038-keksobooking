@@ -150,12 +150,12 @@ var pinClose = dialogCard.querySelector('.dialog__close');
 pinSelected.children[1].classList.add('pin--active');    // сделали первую метку, которая выбрана по умолчанию активной
 var chosenPin;
 var delPinActiveFunc = function () {
-    for (j = 0; j < pinOpen.length; j++) {                     // удалить класс pin--active, если выбрали другую метку
-      if (pinOpen[j].classList.contains('pin--active')) {
-        pinOpen[j].classList.remove('pin--active');
-      }
+  for (j = 0; j < pinOpen.length; j++) {                     // удалить класс pin--active, если выбрали другую метку
+    if (pinOpen[j].classList.contains('pin--active')) {
+      pinOpen[j].classList.remove('pin--active');
     }
-  };
+  }
+};
 var pinNumberChoce = function () {                                // функция присвоения номера i (номер объекта в нашем массиве всех 8-и объектов) при нажатии на соответствующую метку
   for (j = 0; j < numberOfPin + 1; j++) {
     if (pinOpen[j].classList.contains('pin--active')) {
@@ -179,8 +179,8 @@ var onEscPress = function (evt) {         // функция закрытия о�
   }
 };
 var actionOnClicOrEter = function (evt) {     // функция отлова событий с помощью делегирования
-  var event = evt || window.event,
-    target = event.target || event.srcElement;
+  var event = evt || window.event;
+  var target = event.target || event.srcElement;
   if (target.closest('img')) {
     target.parentNode.classList.toggle('pin--active');
     pinNumberChoce();
