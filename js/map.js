@@ -143,3 +143,67 @@ var showPopupFunc = function (pin) {
   avatarTitle.children[0].setAttribute('src', '' + pinAdress[pin].author.avatar + '');      // меняем аватарку
 };
 showPopupFunc(0);        // сразу выводим dialog  с данными от сгенерированной первой метки
+var pinOpen = document.querySelectorAll('.pin');
+var pinSelected = document.querySelector('.tokyo__pin-map');
+var dialogCard = document.querySelector('.dialog');                // закрыть диалог
+var pinClose = dialogCard.querySelector('.dialog__close');
+pinSelected.children[1].classList.add('pin--active');    // сделали первую метку, которая выбрана по умолчанию активной
+var chosenPin;
+var delPinActiveFunc = function () {
+  for (j = 0; j < pinOpen.length; j++) {                     // удалить класс pin--active, если выбрали другую метку
+    if (pinOpen[j].classList.contains('pin--active')) {
+      pinOpen[j].classList.remove('pin--active');
+    }
+  }
+};
+var pinNumberChoce = function () {                                // функция присвоения номера i (номер объекта в нашем массиве всех 8-и объектов) при нажатии на соответствующую метку
+  for (j = 0; j < numberOfPin + 1; j++) {
+    if (pinOpen[j].classList.contains('pin--active')) {
+      chosenPin = j - 1;
+    }
+  }
+};
+var closeDialogFunc = function () {                    // функция закрытия при нажатии на крестик
+  dialogCard.style.display = 'none';
+  delPinActiveFunc();
+};
+var delSpanFunc = function () {
+  var delSpan = document.querySelector('.lodge__features');  // удаляем сгенерированные удобства (вайфай, кондиционер...)от предыдущей метки
+  while (delSpan.firstChild) {
+    delSpan.removeChild(delSpan.firstChild);
+  }
+};
+var onEscPress = function (evt) {         // функция закрытия окна при нажатии Esc
+  if (evt.keyCode === 27) {
+    closeDialogFunc();
+  }
+};
+var actionOnClicOrEter = function (evt) {     // функция отлова событий с помощью делегирования
+  var event = evt || window.event;
+  var target = event.target || event.srcElement;
+  if (target.closest('img')) {
+    target.parentNode.classList.toggle('pin--active');
+    pinNumberChoce();
+    showPopupFunc(chosenPin);
+  }
+  if (target.classList.contains('pin')) {
+    target.classList.toggle('pin--active');
+    pinNumberChoce();
+    showPopupFunc(chosenPin);
+  }
+};
+var clickOrEnterOnPinFunc = function (evt) {
+  dialogCard.style.display = 'block';
+  delSpanFunc();
+  delPinActiveFunc();
+  actionOnClicOrEter(evt);
+};
+var onEnterPress = function (evt) {         // функция закрытия окна при нажатии Esc
+  if (evt.keyCode === 13) {
+    clickOrEnterOnPinFunc();
+  }
+};
+pinSelected.addEventListener('click', clickOrEnterOnPinFunc); // открыть окно кликом
+pinSelected.addEventListener('keydown', onEnterPress);        // открыть окно при нажатии Enter
+pinClose.addEventListener('click', closeDialogFunc);          // закрыть окно кликом
+document.addEventListener('keydown', onEscPress);             // закрыть окно при нажатии Esc
