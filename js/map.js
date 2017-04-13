@@ -207,7 +207,6 @@ pinSelected.addEventListener('click', clickOrEnterOnPinFunc); // открыть 
 pinSelected.addEventListener('keydown', onEnterPress);        // открыть окно при нажатии Enter
 pinClose.addEventListener('click', closeDialogFunc);          // закрыть окно кликом
 document.addEventListener('keydown', onEscPress);             // закрыть окно при нажатии Esc
-var formContent = document.querySelector('.form__content');
 var advertTitle = document.getElementById('title');
 advertTitle.required = true;
 var priceTitle = document.getElementById('price');
