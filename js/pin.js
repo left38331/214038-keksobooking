@@ -16,7 +16,6 @@ window.isCreateClickFunc = (function () {
   var pinOpen = document.querySelectorAll('.pin');
   var pinSelected = document.querySelector('.tokyo__pin-map');
   var dialogCard = document.querySelector('.dialog');
-  var pinClose = dialogCard.querySelector('.dialog__close');
   // сделали активной первую метку, которая выбрана по умолчанию
   pinSelected.children[1].classList.add('pin--active');
   var chosenPin;
@@ -85,5 +84,5 @@ window.isCreateClickFunc = (function () {
     onEnterPress: onEnterPress,
     closeDialogFunc: closeDialogFunc,
     onEscPress: onEscPress
-  }
+  };
 })();

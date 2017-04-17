@@ -19,7 +19,7 @@ window.isImageCardFunc = (function () {
   var dialogElement = listTemplate.cloneNode(true);
   // замена блока другим
   listElement.replaceChild(dialogElement, replicedElement);
-  // заполнение диалога данными при нажатии на Pin 
+  // заполнение диалога данными при нажатии на Pin
   var showPopupFunc = function (pin) {
     listElement.querySelector('.lodge__title').textContent = window.isCreateDataFunc[pin].offer.title;
     listElement.querySelector('.lodge__address').textContent = ' ' + copyCoordinateX[pin] + ' , ' + copyCoordinateY[pin] + '';

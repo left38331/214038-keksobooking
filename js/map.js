@@ -1,7 +1,6 @@
 'use strict';
 
 (function () {
-  var pinOpen = document.querySelectorAll('.pin');
   var pinSelected = document.querySelector('.tokyo__pin-map');
   var dialogCard = document.querySelector('.dialog');
   var pinClose = dialogCard.querySelector('.dialog__close');
