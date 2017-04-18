@@ -9,7 +9,6 @@
   pinClose.addEventListener('click', window.isCreateClickFunc.closeDialogFunc);          // закрыть окно кликом
   document.addEventListener('keydown', window.isCreateClickFunc.onEscPress);             // закрыть окно при нажатии Esc
   // зменение адреса при перемещении метки на карте
-  var adressForm = document.getElementById('address');
   var ourPin = document.querySelector('.pin__main');
   ourPin.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
