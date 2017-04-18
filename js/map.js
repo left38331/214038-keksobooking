@@ -27,9 +27,21 @@
         x: moveEvt.clientX,
         y: moveEvt.clientY
       };
-      ourPin.style.top = (ourPin.offsetTop - shift.y) + 'px';
-      ourPin.style.left = (ourPin.offsetLeft - shift.x) + 'px';
-      adressForm.setAttribute('value', 'x: ' + ourPin.style.top + ', y: ' + ourPin.style.left + '');
+      var mainPinWidth = 74;
+      var mainPinHeight = 94;
+      var y = ourPin.offsetTop - shift.y;
+      var x = ourPin.offsetLeft - shift.x;
+      var coordXMainPin = x + mainPinWidth / 2;
+      var coordYMainPin = y + mainPinHeight;
+      var maxMapX = 1200;
+      var maxMapY = 665;
+      if (coordXMainPin > 0 && coordXMainPin < maxMapX) {
+        ourPin.style.left = x + 'px';
+      }
+      if (coordYMainPin > 0 && coordYMainPin < maxMapY) {
+        ourPin.style.top = y + 'px';
+      }
+      window.formFunc.setAddress(coordXMainPin, coordYMainPin);
     };
     var onMouseUp = function (upEvt) {
       upEvt.preventDefault();

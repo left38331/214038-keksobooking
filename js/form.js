@@ -1,6 +1,6 @@
 'use strict';
 
-(function () {
+window.formFunc = (function () {
   var advertTitle = document.getElementById('title');
   advertTitle.required = true;
   var priceTitle = document.getElementById('price');
@@ -43,4 +43,12 @@
       chosenNumberGuests.selectedIndex = 0;
     }
   });
+  // Адрес
+  function setAddress(x, y) {
+    var address = document.getElementById('address');
+    address.value = 'x: ' + x + ', y: ' + y;
+  }
+  return {
+    setAddress: setAddress
+  };
 })();
