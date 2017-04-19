@@ -9,7 +9,7 @@ window.formFunc = (function () {
   priceTitle.max = 1000000;
   var types = ['flat', 'house', 'bungalo'];
   var times = ['12', '13', '14'];
-  var room_numbers = ['1', '2', '100'];
+  var roomNumbers = ['1', '2', '100'];
   var guestCapasity = ['0', '3', '3'];
   var housePrices = ['1000', '10000', '0'];
   // При изменении времени заезда меняется время выезда
@@ -27,7 +27,7 @@ window.formFunc = (function () {
   };
   window.synchronizeFields(selectCheckin, times, selectCheckout, times, syncValues);
   window.synchronizeFields(selectCheckout, times, selectCheckin, times, syncValues);
-  window.synchronizeFields(roomNumber, room_numbers, capacity, guestCapasity, syncValues);
+  window.synchronizeFields(roomNumber, roomNumbers, capacity, guestCapasity, syncValues);
   window.synchronizeFields(housingType, types, housingPrice, housePrices, syncValueWithMin);
   // Адрес
   function setAddress(x, y) {
