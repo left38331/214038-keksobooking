@@ -56,12 +56,12 @@ window.isCreateClickFunc = (function () {
   var actionOnClicOrEter = function (evt) {
     var event = evt || window.event;
     var target = event.target || event.srcElement;
-    if (target.closest('img')) {
+    if (target.closest('img') && !target.parentNode.classList.contains('pin__main')) {
       target.parentNode.classList.toggle('pin--active');
       pinNumberChoce();
       window.isImageCardFunc(chosenPin);
     }
-    if (target.classList.contains('pin')) {
+    if (target.classList.contains('pin') && !target.classList.contains('pin__main')) {
       target.classList.toggle('pin--active');
       pinNumberChoce();
       window.isImageCardFunc(chosenPin);
