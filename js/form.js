@@ -7,42 +7,28 @@ window.formFunc = (function () {
   priceTitle.required = true;
   priceTitle.min = 1000;
   priceTitle.max = 1000000;
-  var timeInChoise = document.getElementById('time');
-  var timeOutChoise = document.getElementById('timeout');
-  var chosenTypeOfHouse = document.getElementById('type');
-  var chosenPriceForNight = document.getElementById('price');
-  var chosenRoomNumber = document.getElementById('room_number');
-  var chosenNumberGuests = document.getElementById('capacity');
-  // зависимость времени убытия от выбора времени прибытия
-  timeInChoise.addEventListener('change', function () {
-    if (timeInChoise.selectedIndex === 1) {
-      timeOutChoise.selectedIndex = 1;
-    } else if (timeInChoise.selectedIndex === 2) {
-      timeOutChoise.selectedIndex = 2;
-    } else {
-      timeOutChoise.selectedIndex = 0;
-    }
-  });
-  // зависимость выбора типа жилья на минимаьную цену
-  chosenTypeOfHouse.addEventListener('change', function () {
-    if (chosenTypeOfHouse.selectedIndex === 1) {
-      chosenPriceForNight.min = 0;
-    } else if (chosenTypeOfHouse.selectedIndex === 2) {
-      chosenPriceForNight.min = 10000;
-    } else {
-      chosenPriceForNight.min = 1000;
-    }
-  });
-  // зависимость выбора количества комнат на количество гостей
-  chosenRoomNumber.addEventListener('change', function () {
-    if (chosenRoomNumber.selectedIndex === 0) {
-      chosenNumberGuests.selectedIndex = 1;
-    } else if (timeInChoise.selectedIndex === 1) {
-      chosenNumberGuests.selectedIndex = 0;
-    } else {
-      chosenNumberGuests.selectedIndex = 0;
-    }
-  });
+  var types = ['flat', 'house', 'bungalo'];
+  var times = ['12', '13', '14'];
+  var room_numbers = ['1', '2', '100'];
+  var guestCapasity = ['0', '3', '3'];
+  var housePrices = ['1000', '10000', '0'];
+  // При изменении времени заезда меняется время выезда
+  var selectCheckin = document.querySelector('#time');
+  var selectCheckout = document.querySelector('#timeout');
+  var housingType = document.querySelector('#type');
+  var housingPrice = document.querySelector('#price');
+  var roomNumber = document.querySelector('#room_number');
+  var capacity = document.querySelector('#capacity');
+  var syncValues = function (element, value) {
+    element.value = value;
+  };
+  var syncValueWithMin = function (element, value) {
+    element.min = value;
+  };
+  window.synchronizeFields(selectCheckin, times, selectCheckout, times, syncValues);
+  window.synchronizeFields(selectCheckout, times, selectCheckin, times, syncValues);
+  window.synchronizeFields(roomNumber, room_numbers, capacity, guestCapasity, syncValues);
+  window.synchronizeFields(housingType, types, housingPrice, housePrices, syncValueWithMin);
   // Адрес
   function setAddress(x, y) {
     var address = document.getElementById('address');
