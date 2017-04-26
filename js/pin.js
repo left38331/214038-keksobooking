@@ -1,7 +1,6 @@
 'use strict';
 
 window.isCreateClickFunc = (function () {
-  var numberOfPin = 8;
   var allPin = document.querySelector('.tokyo__pin-map');
   // функция создания метки
   var patternPin = function (pin) {
@@ -17,7 +16,7 @@ window.isCreateClickFunc = (function () {
     for (var i = 0; i < 8; i++) {
       fragment.appendChild(patternPin(pins[i]));
     }
-    allPin.appendChild(fragment); 
+    allPin.appendChild(fragment);
   };
   // функция добавлиния и удаления класса pin--active при нажатии на метку
   var addOrDelPinActive = function (data) {
@@ -75,8 +74,7 @@ window.isCreateClickFunc = (function () {
         delSpanFunc(delPhoto);
         pinNumberChoce();
         window.isImageCardFunc.successHandlerDialog(data, chosenPin);
-      } else 
-        if (target.classList.contains('pin') && !target.classList.contains('pin__main')) {
+      } else if (target.classList.contains('pin') && !target.classList.contains('pin__main')) {
         delSpanFunc(delSpan);
         delSpanFunc(delPhoto);
         target.classList.toggle('pin--active');
@@ -99,7 +97,7 @@ window.isCreateClickFunc = (function () {
     pinSelected.addEventListener('keydown', onEnterPress);        // открыть окно при нажатии Enter
     pinClose.addEventListener('click', closeDialogFunc);          // закрыть окно кликом
     document.addEventListener('keydown', onEscPress);             // закрыть окно при нажатии Esc
-   };
+  };
   // если ошибка с получением данных с сервера
   var errorHandler = function (errorMessage) {
     var node = document.createElement('div');
@@ -108,7 +106,7 @@ window.isCreateClickFunc = (function () {
     node.style.left = 0;
     node.style.right = 0;
     node.style.fontSize = '30px';
-    node.textContent = errorMessage; 
+    node.textContent = errorMessage;
     document.body.insertAdjacentElement('afterbegin', node);
   };
   window.load(successHandler, addOrDelPinActive, errorHandler);

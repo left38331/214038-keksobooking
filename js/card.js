@@ -3,13 +3,12 @@
 window.isImageCardFunc = (function () {
   var successHandlerDialog = function (data, chosenPin) {
     // начинаем клонировать элемент (левый диалог и описание метки карты)
-  var listElement = document.querySelector('.dialog');
-  var replicedElement = document.querySelector('.dialog__panel');
-  var listTemplate = document.querySelector('#lodge-template').content;
-  var dialogElement = listTemplate.cloneNode(true);
-  // замена блока другим
-  listElement.replaceChild(dialogElement, replicedElement);
-  var pinOpen = document.querySelectorAll('.pin');
+    var listElement = document.querySelector('.dialog');
+    var replicedElement = document.querySelector('.dialog__panel');
+    var listTemplate = document.querySelector('#lodge-template').content;
+    var dialogElement = listTemplate.cloneNode(true);
+    // замена блока другим
+    listElement.replaceChild(dialogElement, replicedElement);
     listElement.querySelector('.lodge__title').textContent = data[chosenPin].offer.title;
     listElement.querySelector('.lodge__address').textContent = ' ' + data[chosenPin].location.x + ' , ' + data[chosenPin].location.y + '';
     listElement.querySelector('.lodge__price').innerHTML = data[chosenPin].offer.price + ' &#x20bd;/ночь';
@@ -38,10 +37,10 @@ window.isImageCardFunc = (function () {
     allSpan.appendChild(fragmentSpan);
     listElement.querySelector('.lodge__description').innerHTML = data[chosenPin].offer.description;
     // добавляем фоки с сервака
-    var numberPhoto =  data[chosenPin].offer.photos.length;
+    var numberPhoto = data[chosenPin].offer.photos.length;
     var photoParent = listElement.querySelector('.lodge__photos');
     var fragment = document.createDocumentFragment();
-    for (var j = 0; j < numberPhoto; j++) {
+    for (j = 0; j < numberPhoto; j++) {
       var newImg = document.createElement('img');
       newImg.setAttribute('src', '' + data[chosenPin].offer.photos[j] + '');
       newImg.setAttribute('alt', 'Lodge photo');
@@ -49,7 +48,7 @@ window.isImageCardFunc = (function () {
       newImg.setAttribute('height', '42');
       fragment.appendChild(newImg);
     }
-    photoParent.appendChild(fragment); 
+    photoParent.appendChild(fragment);
     var avatarTitle = document.querySelector('.dialog__title');
     // меняем аватарку
     avatarTitle.children[0].setAttribute('src', '' + data[chosenPin].author.avatar + '');
