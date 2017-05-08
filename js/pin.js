@@ -1,6 +1,7 @@
 'use strict';
 
 window.isCreateClickFunc = (function () {
+  
   var allPin = document.querySelector('.tokyo__pin-map');
   // функция создания метки
   var patternPin = function (pin) {
